@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import ListCourses from './ListCourses'
+import ListStudent from './ListStudent'
 import axios from "axios"
-import AddCourse from './AddCourse'
+import AddStudent from './AddStudent'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,16 +27,25 @@ function App() {
     setCourses(courses.filter(item => item._id != id))
   }
 
+  const update = (newU, id) => {  
+    setCourses(courses.map(item => {
+      if (item._id === id) {
+        return { ...item,...newU };
+      }
+      return item;
+    }));
+  }
+
   const add = (newU) => {
-    setCourses([...courses,newU])
+    setCourses([...courses, newU])
   }
 
 
 
   return (
     <>
-      <AddCourse add={add}/>
-      <ListCourses arr={courses} d={dell} />
+      <AddStudent add={add} />
+      <ListStudent arr={courses} d={dell} upda={update}/>
     </>
   )
 }

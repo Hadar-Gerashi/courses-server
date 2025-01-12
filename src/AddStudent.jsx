@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import '../src/add.css'
-const AddCourse = ({ add }) => {
+const AddStudent = ({ add }) => {
 
     let { register, handleSubmit, reset } = useForm()
 
@@ -81,4 +81,4 @@ const AddCourse = ({ add }) => {
         </form>);
 }
 
-export default AddCourse;
+export default AddStudent;
